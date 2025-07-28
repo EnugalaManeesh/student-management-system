@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Student</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="form-container fade-in">
+        <h2>Edit Student Details</h2>
+        <form method="POST">
+            <label>First Name</label>
+            <input type="text" name="first_name" value="{{ student[1] }}" required>
+            <label>Last Name</label>
+            <input type="text" name="last_name" value="{{ student[2] }}" required>
+            <label>Email</label>
+            <input type="email" name="email" value="{{ student[3] }}" required>
+            <label>Phone</label>
+            <input type="text" name="phone" value="{{ student[4] }}" required>
+            <label>Gender</label>
+            <select name="gender" required>
+                <option value="Male" {% if student[5] == 'Male' %}selected{% endif %}>Male</option>
+                <option value="Female" {% if student[5] == 'Female' %}selected{% endif %}>Female</option>
+                <option value="Other" {% if student[5] == 'Other' %}selected{% endif %}>Other</option>
+            </select>
+            <button type="submit" class="btn">Update</button>
+        </form>
+        <br>
+        <a href="/students" class="btn">⬅ Back to Student List</a>
+    </div>
+</body>
+</html>
+
+
